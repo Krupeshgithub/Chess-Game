@@ -51,32 +51,53 @@ class Game(Structure):
                 
             count+=1
             temp+=1
-        print(self.chess)
         
+        
+error = {
+    1 : "'0' row & '0' col not count!",
+    2 : "Enter some value don't skip blank",
+    3 : "Enter only <= 8"
+}
+
 class Start_Game(Game):
     
-    def __init__ (self,current_row,current_col,next_row,next_col):
-        self.current_row = current_row
-        self.current_col = current_col
-        self.next_row = next_row
-        self.next_col = next_col
+    def __init__ (self):
         Game.__init__(self)
         self.game()
-        self.__prev_game = self.chess
     
     def start_game (self):
-        var = self.__prev_game[self.current_row,self.current_col]
-        self.__prev_game[self.next_row,self.next_col] = var
-        self.__prev_game[self.current_row,self.current_col] = '-'
-        print(self.__prev_game)
         
+        print(self.chess)
 
-inp = input("Enter the number please :: ",)
-input = tuple([int(i) for i in inp])
-status = True
-while status:
-    if inp != 'quit':
-        obj = Start_Game(input)
-        obj.start_game()
-    else:
-        break
+        while True: 
+                try:
+                    self.current_row = int(input("Enter current_row ::")) 
+                    self.current_col = int(input("Enter current_col ::"))
+                    self.next_row = int(input("Enter next_row ::"))
+                    self.next_col = int(input("Enter next_col ::"))
+                except Exception as e:
+                   raise ValueError (error[2])
+                    
+                
+                if self.current_row == "50":
+                    False
+                
+                else:
+                    if self.current_row == 0 and self.next_col == 0:
+                        raise ValueError(error[1])
+                    if self.current_col|self.current_row|self.next_col|self.next_row > 8:
+                        raise ValueError(error[3])
+                        
+                    print(self.chess[self.current_row,self.current_col])
+                        
+                    
+                    
+                    self.chess[self.next_row,self.next_col] = self.chess[self.current_row,self.current_col]
+                    self.chess[self.current_row,self.current_col] = '-'
+                    print(self.chess)
+            
+                
+# llist.testing()
+
+llist = Start_Game()
+llist.start_game()
