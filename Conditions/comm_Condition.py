@@ -13,14 +13,8 @@ def movements (chess,current_row,current_col,next_row,next_col):
 def condition(current_row, current_col, next_row, next_col):
     if current_row == 0 or next_col == 0:
         raise ValueError(errors[1])
-    else:
-        return True
-    
-    if current_col or current_row or next_col or next_row > 8:
-        raise ValueError(errors[3])
-    else:
-        return True
-    
+    # if (current_col or current_row or next_col or next_row <= 8):
+    #     raise ValueError(errors[3])
     if current_col == current_row == next_col == next_row:
         raise ValueError(errors[4])
     else:

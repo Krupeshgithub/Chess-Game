@@ -78,7 +78,7 @@ class Start_Game(Game):
                     self.next_col = int(input("Enter next_col ::"))
                 except Exception as e:
                    print(e) 
-                   raise ValueError ("Enter some value don't skip blank")
+                   raise ValueError("Enter some value don't skip blank")
                 
                 if self.current_row == "50":
                     False
@@ -89,24 +89,27 @@ class Start_Game(Game):
 
                     comm_Condition.condition(self.current_row,self.current_col,self.next_row,self.next_col)
 
-                    if get_piece == (piece_dict['WHITE']['Pawn'] or piece_dict['BLACK'] ['Pawn']):
-                        piece_Condtions.pawn_Conditions(piece_dict, self.chess, self.current_row,self.current_col, self.next_col, self.next_row)
+                    if (get_piece == piece_dict['WHITE']['Pawn']) or (get_piece == piece_dict['BLACK'] ['Pawn']):
+                        piece_Condtions.pawn_Conditions(get_piece, piece_dict, self.chess, self.current_row,self.current_col, self.next_row, self.next_col)
 
-                    elif get_piece == (piece_dict['WHITE']['Rook'] or piece_dict['BLACK'] ['Rook']):
-                        piece_Condtions.rook_Conditions(piece_dict, self.chess, self.current_row,self.current_col, self.next_col, self.next_row)
+                    elif (get_piece == piece_dict['WHITE']['Rook']) or (get_piece == piece_dict['BLACK'] ['Rook']):
+                        piece_Condtions.rook_Conditions(piece_dict, self.chess, self.current_row,self.current_col, self.next_row, self.next_col)
                             
-                    elif get_piece == (piece_dict['WHITE']['Knight'] or piece_dict['BLACK'] ['Knight']):
-                        pass
+                    elif (get_piece == piece_dict['WHITE']['Knight']) or (get_piece == piece_dict['BLACK'] ['Knight']):
+                        piece_Condtions.knight_Conditons(piece_dict, self.chess, self.current_row,self.current_col, self.next_row, self.next_col)
                     
-                    elif get_piece == (piece_dict['WHITE']['Bishop'] or piece_dict['BLACK'] ['Bishop']):
-                        pass
-
-                    elif get_piece == (piece_dict['WHITE']['King'] or piece_dict['BLACK'] ['King']):
+                    elif (get_piece == piece_dict['WHITE']['Bishop']) or (get_piece == piece_dict['BLACK'] ['Bishop']):
+                        piece_Condtions.bishop_Conditions(piece_dict, self.chess, self.current_row, self.current_col, self.next_row, self.next_col)
+                           
+                    elif (get_piece == piece_dict['WHITE']['King']) or (get_piece == piece_dict['BLACK'] ['King']):
                         piece_Condtions.king_Condtions(piece_dict, self.chess, self.current_row, self.current_col, self.next_row, self.next_col)
                     
-                    elif get_piece == (piece_dict['WHITE']['Queen'] or piece_dict['BLACK'] ['Queen']):
-                        pass
-                        
+                    elif (get_piece == piece_dict['WHITE']['Queen']) or (get_piece == piece_dict['BLACK'] ['Queen']):
+                        piece_Condtions.queen_Conditions(piece_dict, self.chess, self.current_row, self.current_col, self.next_row, self.next_col)
+
+                    else:
+                        raise ValueError("Enter valid number's")
+
 # llist.testing()
 
 llist = Start_Game()
