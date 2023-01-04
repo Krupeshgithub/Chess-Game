@@ -76,6 +76,7 @@ def rook_Conditions(piece_dict, chess, current_row, current_col, next_row, next_
     
     if (current_row == next_row) or (current_col == next_col):
         same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
+    
     else:
         print(ValueError(errors[4]))
 
