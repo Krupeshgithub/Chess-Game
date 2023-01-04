@@ -6,6 +6,7 @@ from Conditions import piece_Condtions
 piece_dict = {"WHITE" : {"Pawn" : "♙", "Rook" : "♖", "Knight" : "♘", "Bishop" : "♗", "King" : "♔", "Queen" : "♕" },\
  "BLACK" : {"Pawn" : "♟", "Rook" : "♜", "Knight" : "♞", "Bishop" : "♝", "King" : "♚", "Queen" : "♛" }}
 
+
 class Structure:
 
     abc = ['S','a','b','c','d','e','f','g','h']
