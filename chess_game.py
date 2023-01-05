@@ -69,17 +69,22 @@ class Start_Game(Game):
         print(self.chess)
 
         while True: 
-                
+                turn_ = 1
+                if 1:
+                    self.players['WHITE']
+                else:
+                    self.players['BLACK']
+
                 try:    
                     self.current_row = int(input("Enter current_row ::")) 
                     self.current_col = int(input("Enter current_col ::"))
                     self.next_row = int(input("Enter next_row ::"))
                     self.next_col = int(input("Enter next_col ::"))
-                except Exception as e:
-                   print(e) 
-                   raise ValueError("Enter some value don't skip blank")
+                except ValueError:
+                   print("Enter some value don't skip blank")
+                   continue
                 
-                if self.current_row == "50":
+                if self.chess[self.current_row, self.current_col]:
                     False
                 
                 else:

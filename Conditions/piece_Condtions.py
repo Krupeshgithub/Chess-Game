@@ -32,7 +32,8 @@ def same_Operations(piece_dict, chess, current_row, current_col, next_row, next_
                 comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
             else:
-                print(ValueError(errors[4]))
+                print((errors[4]))
+
     elif (chess[current_row, current_col] in ["♞", "♘"]):
 
         if (chess[next_row,next_col] in piece_dict['BLACK'].values()):
@@ -48,7 +49,7 @@ def same_Operations(piece_dict, chess, current_row, current_col, next_row, next_
                 comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
             else:
-                print(ValueError(errors[4]))
+                print((errors[4]))
     else:
         print(chess)
 
@@ -71,7 +72,7 @@ def pawn_Conditions(get_piece, piece_dict, chess, current_row, current_col, next
                 comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
             else:
-                print(ValueError(errors[4]))
+                print((errors[4]))
     
     else:
         
@@ -90,7 +91,7 @@ def pawn_Conditions(get_piece, piece_dict, chess, current_row, current_col, next
                 comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
             else:
-                print(ValueError(errors[4]))
+                print((errors[4]))
 
 def rook_Conditions(piece_dict, chess, current_row, current_col, next_row, next_col):
     
@@ -98,7 +99,7 @@ def rook_Conditions(piece_dict, chess, current_row, current_col, next_row, next_
         same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
     
     else:
-        print(ValueError(errors[4]))
+        print((errors[4]))
 
 def king_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col):
 
@@ -107,7 +108,7 @@ def king_Condtions(piece_dict, chess, current_row, current_col, next_row, next_c
         same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
     
     else:
-        print(ValueError(errors[4]))
+        print((errors[4]))
 
 def bishop_Conditions(piece_dict, chess, current_row, current_col, next_row, next_col):
     
@@ -120,7 +121,7 @@ def bishop_Conditions(piece_dict, chess, current_row, current_col, next_row, nex
         same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
     
     else:
-        print(ValueError(errors[4]))
+        print((errors[4]))
         
 def knight_Conditons(piece_dict, chess, current_row, current_col, next_row, next_col):
 
@@ -128,7 +129,7 @@ def knight_Conditons(piece_dict, chess, current_row, current_col, next_row, next
         same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
 
     else:
-        print(ValueError(errors[4]))
+        print((errors[4]))
     
 def queen_Conditions(piece_dict, chess, current_row, current_col, next_row, next_col):
 
@@ -136,49 +137,48 @@ def queen_Conditions(piece_dict, chess, current_row, current_col, next_row, next
         same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
     
     else:
-        print(ValueError(errors[4]))
+        print((errors[4]))
 
 def jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col):
 
     if current_row > next_row and current_col == next_col:
         for i in range(current_row-next_row):
             if chess[(current_row-i), next_col] != '-':
-                print(ValueError(errors[5]))
+                print(errors[5])
 
     elif current_row < next_row and current_col == next_col:
         for i in range(next_row-current_row):
             if chess[(current_row+i), next_col] != '-':
-                print(ValueError(errors[5]))
+                print(errors[5])
      
     elif current_row == next_row and current_col > next_col:
         for i in range(current_col-next_col):
             if chess[(current_row, (current_col-i))] != '-':
-                print(ValueError(errors[5]))
+                print(errors[5])
      
     elif current_row == next_row and current_col < next_col:
         for i in range(next_col-current_col):
             if chess[(current_row, (current_col+i))] != '-':
-                print(ValueError(errors[5]))
+                print(errors[5])
 
     elif current_row < next_row and current_col > next_col:
         for i in range(next_row - current_row):
             if chess[(current_row+i), (current_col-i)] != '-':
-                print(ValueError(errors[5]))
+                print(errors[5])
 
     elif current_row > next_row and current_col < next_col:
         for i in range(current_row - next_row):
             if chess[(current_row-i), (current_col+i)] != '-':
-                print(ValueError(errors[5]))
+                print(errors[5])
         
     elif current_row > next_row and current_col > next_col:
         for i in range(current_row - next_row):
             if chess[(current_row+i), (current_col+i)] != '-':
-                print(ValueError(errors[5]))
+                print(errors[5])
  
     elif current_row < next_row and current_col < next_col:
         for i in range(next_row - current_row):
             if chess[(current_row-i), (current_col-i)] != '-':
-                print(ValueError(errors[5]))
+                print(errors[5])
     else:
         return True
-
