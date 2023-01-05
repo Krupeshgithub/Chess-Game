@@ -16,7 +16,7 @@ def knight_queen(current_row, current_col):
     return operation_Condition
 
 def same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col):
-    
+
     if (chess[current_row, current_col] not in ["♞", "♘"]) and (jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col)):
 
         if (chess[next_row,next_col] in piece_dict['BLACK'].values()):
@@ -143,42 +143,43 @@ def jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_c
 
     if current_row > next_row and current_col == next_col:
         for i in range(current_row-next_row):
-            if chess[(current_row-i), next_col] != '-':
+            if chess[(current_row-i)-1, next_col] != '-':
                 print(errors[5])
 
     elif current_row < next_row and current_col == next_col:
         for i in range(next_row-current_row):
-            if chess[(current_row+i), next_col] != '-':
+            if chess[(current_row+i)+1, next_col] != '-':
                 print(errors[5])
      
     elif current_row == next_row and current_col > next_col:
         for i in range(current_col-next_col):
-            if chess[(current_row, (current_col-i))] != '-':
+            if chess[(current_row, (current_col-i)-1)] != '-':
                 print(errors[5])
      
     elif current_row == next_row and current_col < next_col:
         for i in range(next_col-current_col):
-            if chess[(current_row, (current_col+i))] != '-':
+            if chess[(current_row, (current_col+i)+1)] != '-':
                 print(errors[5])
+                return 
 
     elif current_row < next_row and current_col > next_col:
         for i in range(next_row - current_row):
-            if chess[(current_row+i), (current_col-i)] != '-':
+            if chess[(current_row+i)+1, (current_col-i)-1] != '-':
                 print(errors[5])
 
     elif current_row > next_row and current_col < next_col:
         for i in range(current_row - next_row):
-            if chess[(current_row-i), (current_col+i)] != '-':
+            if chess[(current_row-i)-1, (current_col+i)+1] != '-':
                 print(errors[5])
         
     elif current_row > next_row and current_col > next_col:
         for i in range(current_row - next_row):
-            if chess[(current_row+i), (current_col+i)] != '-':
+            if chess[(current_row+i)+1, (current_col+i)+1] != '-':
                 print(errors[5])
  
     elif current_row < next_row and current_col < next_col:
         for i in range(next_row - current_row):
-            if chess[(current_row-i), (current_col-i)] != '-':
+            if chess[(current_row-i)-1, (current_col-i)-1] != '-':
                 print(errors[5])
     else:
         return True

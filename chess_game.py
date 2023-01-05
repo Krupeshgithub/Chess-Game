@@ -55,11 +55,6 @@ class Game(Structure):
         
 class Start_Game(Game):
     
-    players = {
-                "WHITE" : True,
-                "BLACK" : False
-            }
-            
     def __init__ (self):
         Game.__init__(self)
         self.game()
@@ -68,63 +63,62 @@ class Start_Game(Game):
         
         print(self.chess)
 
+        turn = 1
         while True: 
-                turn_ = 1
-                if 1:
-                    self.players['WHITE']
-                else:
-                    self.players['BLACK']
+                try:
 
-                try:    
+                    if turn == 1:
+                        print('WHITE')
+                        turn = 0
+                    else:
+                        print('BLACK')
+                        turn = 1
+
                     self.current_row = int(input("Enter current_row ::")) 
                     self.current_col = int(input("Enter current_col ::"))
                     self.next_row = int(input("Enter next_row ::"))
                     self.next_col = int(input("Enter next_col ::"))
-                except ValueError:
-                   print("Enter some value don't skip blank")
-                   continue
+                except ValueError as e:
+                    print("Enter some value don't skip blank")
+                    continue
                 
-                if self.chess[self.current_row, self.current_col]:
-                    False
+                get_piece = self.chess[self.current_row,self.current_col]
+                # if turn == 1 : 
+
+                comm_Condition.condition(self.current_row,self.current_col,self.next_row,self.next_col)
+
+                if (get_piece == piece_dict['WHITE']['Pawn']) or (get_piece == piece_dict['BLACK'] ['Pawn']):
+                    piece_Condtions.pawn_Conditions(get_piece, piece_dict, self.chess, \
+                                                    self.current_row,self.current_col, \
+                                                    self.next_row, self.next_col)
+
+                elif (get_piece == piece_dict['WHITE']['Rook']) or (get_piece == piece_dict['BLACK'] ['Rook']):
+                    piece_Condtions.rook_Conditions(piece_dict, self.chess, \
+                                                    self.current_row,self.current_col, \
+                                                    self.next_row, self.next_col)
+                        
+                elif (get_piece == piece_dict['WHITE']['Knight']) or (get_piece == piece_dict['BLACK'] ['Knight']):
+                    piece_Condtions.knight_Conditons(piece_dict, self.chess, \
+                                                        self.current_row, self.current_col, \
+                                                        self.next_row, self.next_col)
                 
+                elif (get_piece == piece_dict['WHITE']['Bishop']) or (get_piece == piece_dict['BLACK'] ['Bishop']):
+                    piece_Condtions.bishop_Conditions(piece_dict, self.chess, \
+                                                        self.current_row, self.current_col, \
+                                                        self.next_row, self.next_col)
+                        
+                elif (get_piece == piece_dict['WHITE']['King']) or (get_piece == piece_dict['BLACK'] ['King']):
+                    piece_Condtions.king_Condtions(piece_dict, self.chess, \
+                                                    self.current_row, self.current_col, \
+                                                    self.next_row, self.next_col)
+                
+                elif (get_piece == piece_dict['WHITE']['Queen']) or (get_piece == piece_dict['BLACK'] ['Queen']):
+                    piece_Condtions.queen_Conditions(piece_dict, self.chess, \
+                                                        self.current_row, self.current_col, \
+                                                        self.next_row, self.next_col)
+
                 else:
-
-                    get_piece = self.chess[self.current_row,self.current_col]
-
-                    comm_Condition.condition(self.current_row,self.current_col,self.next_row,self.next_col)
-
-                    if (get_piece == piece_dict['WHITE']['Pawn']) or (get_piece == piece_dict['BLACK'] ['Pawn']):
-                        piece_Condtions.pawn_Conditions(get_piece, piece_dict, self.chess, \
-                                                        self.current_row,self.current_col, \
-                                                        self.next_row, self.next_col)
-
-                    elif (get_piece == piece_dict['WHITE']['Rook']) or (get_piece == piece_dict['BLACK'] ['Rook']):
-                        piece_Condtions.rook_Conditions(piece_dict, self.chess, \
-                                                        self.current_row,self.current_col, \
-                                                        self.next_row, self.next_col)
-                            
-                    elif (get_piece == piece_dict['WHITE']['Knight']) or (get_piece == piece_dict['BLACK'] ['Knight']):
-                        piece_Condtions.knight_Conditons(piece_dict, self.chess, \
-                                                         self.current_row, self.current_col, \
-                                                         self.next_row, self.next_col)
-                    
-                    elif (get_piece == piece_dict['WHITE']['Bishop']) or (get_piece == piece_dict['BLACK'] ['Bishop']):
-                        piece_Condtions.bishop_Conditions(piece_dict, self.chess, \
-                                                          self.current_row, self.current_col, \
-                                                          self.next_row, self.next_col)
-                           
-                    elif (get_piece == piece_dict['WHITE']['King']) or (get_piece == piece_dict['BLACK'] ['King']):
-                        piece_Condtions.king_Condtions(piece_dict, self.chess, \
-                                                       self.current_row, self.current_col, \
-                                                       self.next_row, self.next_col)
-                    
-                    elif (get_piece == piece_dict['WHITE']['Queen']) or (get_piece == piece_dict['BLACK'] ['Queen']):
-                        piece_Condtions.queen_Conditions(piece_dict, self.chess, \
-                                                         self.current_row, self.current_col, \
-                                                         self.next_row, self.next_col)
-
-                    else:
-                        raise ValueError("Enter valid number's")
+                    raise ValueError("Enter valid number's")
 
 # llist.testing()
 
