@@ -2,7 +2,8 @@ errors = {
     1 : "'0' row & '0' col not count!",
     2 : "Enter some value don't skip blank",
     3 : "Enter only <= 8",
-    4 : "Select valid next number!"
+    4 : "Select valid next number!",
+    5 : "Don't jump"
 }
 
 def movements (chess,current_row,current_col,next_row,next_col):
