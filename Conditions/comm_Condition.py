@@ -1,3 +1,4 @@
+
 errors = {
     1 : "'0' row & '0' col not count!",
     2 : "Enter some value don't skip blank",
@@ -6,7 +7,7 @@ errors = {
     5 : "Don't jump"
 }
 
-def movements (chess,current_row,current_col,next_row,next_col):
+def movements(chess,current_row,current_col,next_row,next_col):
     chess[next_row,next_col] = chess[current_row,current_col]
     chess[current_row,current_col] = '-'
     print(chess)

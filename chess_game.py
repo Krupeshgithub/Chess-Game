@@ -6,7 +6,6 @@ from Conditions import piece_Condtions
 piece_dict = {"WHITE" : {"Pawn" : "♙", "Rook" : "♖", "Knight" : "♘", "Bishop" : "♗", "King" : "♔", "Queen" : "♕" },\
  "BLACK" : {"Pawn" : "♟", "Rook" : "♜", "Knight" : "♞", "Bishop" : "♝", "King" : "♚", "Queen" : "♛" }}
 
-
 class Structure:
 
     abc = ['S','a','b','c','d','e','f','g','h']
@@ -62,29 +61,23 @@ class Start_Game(Game):
     def start_game (self):
         
         print(self.chess)
-
+        global turn
         turn = 1
         while True: 
-                try:
-
-                    if turn == 1:
-                        print('WHITE')
-                        turn = 0
-                    else:
-                        print('BLACK')
-                        turn = 1
-
-                    self.current_row = int(input("Enter current_row ::")) 
-                    self.current_col = int(input("Enter current_col ::"))
-                    self.next_row = int(input("Enter next_row ::"))
-                    self.next_col = int(input("Enter next_col ::"))
-                except ValueError as e:
-                    print("Enter some value don't skip blank")
-                    continue
-                
-                get_piece = self.chess[self.current_row,self.current_col]
-                # if turn == 1 : 
-
+            try:
+                print('WHITE') if turn else print('BLACK')
+                self.current_row = int(input("Enter current_row ::")) 
+                self.current_col = int(input("Enter current_col ::"))
+                self.next_row = int(input("Enter next_row ::"))
+                self.next_col = int(input("Enter next_col ::"))
+            except ValueError as e:
+                print("Enter some value don't skip blank")
+                continue
+            
+            get_piece = self.chess[self.current_row,self.current_col]
+            
+            if (turn and get_piece in (piece_dict['WHITE'].values())) or (turn == 0 and get_piece in (piece_dict['BLACK'].values())):   
+                turn = False if turn else True
                 comm_Condition.condition(self.current_row,self.current_col,self.next_row,self.next_col)
 
                 if (get_piece == piece_dict['WHITE']['Pawn']) or (get_piece == piece_dict['BLACK'] ['Pawn']):
@@ -119,8 +112,10 @@ class Start_Game(Game):
 
                 else:
                     raise ValueError("Enter valid number's")
+            
+            else:
+                continue
 
 # llist.testing()
-
 llist = Start_Game()
 llist.start_game()

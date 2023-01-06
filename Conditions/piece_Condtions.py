@@ -16,8 +16,7 @@ def knight_queen(current_row, current_col):
     return operation_Condition
 
 def same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col):
-
-    if (chess[current_row, current_col] not in ["♞", "♘"]) and (jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col)):
+    if (chess[current_row, current_col] not in ["♞", "♘"]) and (jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col)) is None:
 
         if (chess[next_row,next_col] in piece_dict['BLACK'].values()):
             DIE_PIECE_BLACK.append(chess[next_row,next_col])
@@ -32,7 +31,7 @@ def same_Operations(piece_dict, chess, current_row, current_col, next_row, next_
                 comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
             else:
-                print((errors[4]))
+                print(errors[4])
 
     elif (chess[current_row, current_col] in ["♞", "♘"]):
 
@@ -49,49 +48,55 @@ def same_Operations(piece_dict, chess, current_row, current_col, next_row, next_
                 comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
             else:
-                print((errors[4]))
+                print(errors[4])
     else:
         print(chess)
 
 def pawn_Conditions(get_piece, piece_dict, chess, current_row, current_col, next_row, next_col):
 
-    if piece_dict['WHITE']['Pawn'] == get_piece:
-        if current_row == next_row and \
-            ((current_col + 1 == (next_col)) or \
-            current_col + 2 == (next_col))\
-            and (chess[next_row,next_col] == '-'):   
+    if jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col) is None:
 
-            comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
-
-        else:
-            
-            if (chess[next_row,next_col] == any(piece_dict['BLACK'].values())) \
-                and (current_col+1,current_row+1) == (next_col,next_row):
-
-                DIE_PIECE_BLACK.append(chess[next_row,next_col])
-                comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
-            
-            else:
-                print((errors[4]))
-    
-    else:
-        
-        if current_row == next_row and ((current_col - 1 == (next_col)) or \
-            current_col - 2 == (next_col))\
-            and (chess[next_row,next_col] == '-'):
-
-            comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
-        
-        else:
-            
-            if (chess[next_row,next_col] == any(piece_dict['WHITE'].values())) \
-                and (current_col-1,current_row-1) == (next_col,next_row):
+        if piece_dict['WHITE']['Pawn'] == get_piece:
+            if current_row == next_row and \
+                ((current_col + 1 == (next_col)) or \
+                current_col + 2 == (next_col))\
+                and (chess[next_row,next_col] == '-'):   
                 
-                DIE_PIECE_WHITE.append(chess[next_row,next_col])
+                comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
+
+            else:
+                
+                if (chess[next_row,next_col] == any(piece_dict['BLACK'].values())) \
+                    and (current_col+1,current_row+1) == (next_col,next_row):
+        
+                    DIE_PIECE_BLACK.append(chess[next_row,next_col])
+                    comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
+                
+                else:
+                    print(errors[4])
+        
+        else:
+            
+            if current_row == next_row and ((current_col - 1 == (next_col)) or \
+                current_col - 2 == (next_col))\
+                and (chess[next_row,next_col] == '-'):
+
+                jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col)
                 comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
             else:
-                print((errors[4]))
+                
+                if (chess[next_row,next_col] == any(piece_dict['WHITE'].values())) \
+                    and (current_col-1,current_row-1) == (next_col,next_row):
+                    
+                    jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col)
+                    DIE_PIECE_WHITE.append(chess[next_row,next_col])
+                    comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
+                
+                else:
+                    print(errors[4])
+    else:
+        print(chess)
 
 def rook_Conditions(piece_dict, chess, current_row, current_col, next_row, next_col):
     
@@ -99,7 +104,7 @@ def rook_Conditions(piece_dict, chess, current_row, current_col, next_row, next_
         same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
     
     else:
-        print((errors[4]))
+        print(errors[4])
 
 def king_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col):
 
@@ -108,7 +113,7 @@ def king_Condtions(piece_dict, chess, current_row, current_col, next_row, next_c
         same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
     
     else:
-        print((errors[4]))
+        print(errors[4])
 
 def bishop_Conditions(piece_dict, chess, current_row, current_col, next_row, next_col):
     
@@ -121,7 +126,7 @@ def bishop_Conditions(piece_dict, chess, current_row, current_col, next_row, nex
         same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
     
     else:
-        print((errors[4]))
+        print(errors[4])
         
 def knight_Conditons(piece_dict, chess, current_row, current_col, next_row, next_col):
 
@@ -129,7 +134,7 @@ def knight_Conditons(piece_dict, chess, current_row, current_col, next_row, next
         same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
 
     else:
-        print((errors[4]))
+        print(errors[4])
     
 def queen_Conditions(piece_dict, chess, current_row, current_col, next_row, next_col):
 
@@ -137,49 +142,56 @@ def queen_Conditions(piece_dict, chess, current_row, current_col, next_row, next
         same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
     
     else:
-        print((errors[4]))
+        print(errors[4])
 
 def jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col):
 
     if current_row > next_row and current_col == next_col:
         for i in range(current_row-next_row):
-            if chess[(current_row-i)-1, next_col] != '-':
+            if chess[(current_row-i), next_col] != '-' and i!=0:
                 print(errors[5])
+                return False
 
     elif current_row < next_row and current_col == next_col:
         for i in range(next_row-current_row):
-            if chess[(current_row+i)+1, next_col] != '-':
+            if chess[(current_row+i), next_col] != '-' and i!=0:
                 print(errors[5])
+                return False
      
     elif current_row == next_row and current_col > next_col:
         for i in range(current_col-next_col):
-            if chess[(current_row, (current_col-i)-1)] != '-':
+            if chess[(current_row, (current_col-i))] != '-' and i!=0:
                 print(errors[5])
+                return False
      
     elif current_row == next_row and current_col < next_col:
         for i in range(next_col-current_col):
-            if chess[(current_row, (current_col+i)+1)] != '-':
+            if chess[(current_row, (current_col+i))] != '-' and i!=0:
                 print(errors[5])
-                return 
+                return False
+     
 
     elif current_row < next_row and current_col > next_col:
         for i in range(next_row - current_row):
-            if chess[(current_row+i)+1, (current_col-i)-1] != '-':
+            if chess[(current_row+i), (current_col-i)] != '-' and i!=0:
                 print(errors[5])
+                return False
 
     elif current_row > next_row and current_col < next_col:
         for i in range(current_row - next_row):
-            if chess[(current_row-i)-1, (current_col+i)+1] != '-':
+            if chess[(current_row-i), (current_col+i)] != '-' and i!=0:
                 print(errors[5])
+                return False
         
     elif current_row > next_row and current_col > next_col:
         for i in range(current_row - next_row):
-            if chess[(current_row+i)+1, (current_col+i)+1] != '-':
+            if chess[(current_row+i), (current_col+i)] != '-' and i!=0:
                 print(errors[5])
+                return False
  
     elif current_row < next_row and current_col < next_col:
         for i in range(next_row - current_row):
-            if chess[(current_row-i)-1, (current_col-i)-1] != '-':
+            if chess[(current_row-i), (current_col-i)] != '-' and i!=0:
                 print(errors[5])
-    else:
-        return True
+                return False
+ 
