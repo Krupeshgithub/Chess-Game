@@ -15,8 +15,8 @@ def knight_queen(current_row, current_col):
 
     return operation_Condition
 
-def same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col):
-    if (chess[current_row, current_col] not in ["♞", "♘"]) and (jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col)) is None:
+def same_Operations(turn_, piece_dict, chess, current_row, current_col, next_row, next_col):
+    if (chess[current_row, current_col] not in ["♞", "♘"]) and (jump_Condtions(turn_, piece_dict, chess, current_row, current_col, next_row, next_col)) is None:
 
         if (chess[next_row,next_col] in piece_dict['BLACK'].values()):
             DIE_PIECE_BLACK.append(chess[next_row,next_col])
@@ -31,6 +31,7 @@ def same_Operations(piece_dict, chess, current_row, current_col, next_row, next_
                 comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
             else:
+                turn_ = False if turn_ else True
                 print(errors[4])
 
     elif (chess[current_row, current_col] in ["♞", "♘"]):
@@ -48,13 +49,15 @@ def same_Operations(piece_dict, chess, current_row, current_col, next_row, next_
                 comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
             else:
+                turn_ = False if turn_ else True
                 print(errors[4])
     else:
+        turn_ = False if turn_ else True
         print(chess)
 
-def pawn_Conditions(get_piece, piece_dict, chess, current_row, current_col, next_row, next_col):
+def pawn_Conditions(get_piece,turn_, piece_dict, chess, current_row, current_col, next_row, next_col):
 
-    if jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col) is None:
+    if jump_Condtions(turn_, piece_dict, chess, current_row, current_col, next_row, next_col) is None:
 
         if piece_dict['WHITE']['Pawn'] == get_piece:
             if current_row == next_row and \
@@ -73,6 +76,7 @@ def pawn_Conditions(get_piece, piece_dict, chess, current_row, current_col, next
                     comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
                 
                 else:
+                    turn_ = False if turn_ else True
                     print(errors[4])
         
         else:
@@ -81,7 +85,7 @@ def pawn_Conditions(get_piece, piece_dict, chess, current_row, current_col, next
                 current_col - 2 == (next_col))\
                 and (chess[next_row,next_col] == '-'):
 
-                jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col)
+                jump_Condtions(turn_, piece_dict, chess, current_row, current_col, next_row, next_col)
                 comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
             else:
@@ -89,33 +93,37 @@ def pawn_Conditions(get_piece, piece_dict, chess, current_row, current_col, next
                 if (chess[next_row,next_col] == any(piece_dict['WHITE'].values())) \
                     and (current_col-1,current_row-1) == (next_col,next_row):
                     
-                    jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col)
+                    jump_Condtions(turn_, piece_dict, chess, current_row, current_col, next_row, next_col)
                     DIE_PIECE_WHITE.append(chess[next_row,next_col])
                     comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
                 
                 else:
+                    turn_ = False if turn_ else True
                     print(errors[4])
     else:
+        turn_ = False if turn_ else True
         print(chess)
 
-def rook_Conditions(piece_dict, chess, current_row, current_col, next_row, next_col):
+def rook_Conditions(turn_, piece_dict, chess, current_row, current_col, next_row, next_col):
     
     if (current_row == next_row) or (current_col == next_col):
-        same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
+        same_Operations(turn_, piece_dict, chess, current_row, current_col, next_row, next_col)
     
     else:
+        turn_ = False if turn_ else True
         print(errors[4])
 
-def king_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col):
+def king_Condtions(turn_, piece_dict, chess, current_row, current_col, next_row, next_col):
 
     if (current_row+1 == next_row) or (current_row-1 == next_row)\
              or (current_col+1 == next_col) or (current_col-1 == next_col):
-        same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
+        same_Operations(turn_, piece_dict, chess, current_row, current_col, next_row, next_col)
     
     else:
+        turn_ = False if turn_ else True
         print(errors[4])
 
-def bishop_Conditions(piece_dict, chess, current_row, current_col, next_row, next_col):
+def bishop_Conditions(turn_, piece_dict, chess, current_row, current_col, next_row, next_col):
     
     current_plus = int(current_col + current_row)
     current_negative = int(current_col - current_row)
@@ -123,28 +131,31 @@ def bishop_Conditions(piece_dict, chess, current_row, current_col, next_row, nex
     next_negative = next_col - next_row
 
     if (current_plus == next_plus) or (current_negative == next_negative):
-        same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
+        same_Operations(turn_, piece_dict, chess, current_row, current_col, next_row, next_col)
     
     else:
+        turn_ = False if turn_ else True
         print(errors[4])
         
-def knight_Conditons(piece_dict, chess, current_row, current_col, next_row, next_col):
+def knight_Conditons(turn_, piece_dict, chess, current_row, current_col, next_row, next_col):
 
     if (next_row, next_col) in knight_queen(current_row, current_col):
-        same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
+        same_Operations(turn_, piece_dict, chess, current_row, current_col, next_row, next_col)
 
     else:
+        turn_ = False if turn_ else True
         print(errors[4])
     
-def queen_Conditions(piece_dict, chess, current_row, current_col, next_row, next_col):
+def queen_Conditions(turn_, piece_dict, chess, current_row, current_col, next_row, next_col):
 
     if (next_row, next_col) not in knight_queen(current_row, current_col):
-        same_Operations(piece_dict, chess, current_row, current_col, next_row, next_col)
+        same_Operations(turn_, piece_dict, chess, current_row, current_col, next_row, next_col)
     
     else:
+        turn_ = False if turn_ else True
         print(errors[4])
 
-def jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_col):
+def jump_Condtions(turn_, piece_dict, chess, current_row, current_col, next_row, next_col):
 
     if current_row > next_row and current_col == next_col:
         for i in range(current_row-next_row):
@@ -194,4 +205,3 @@ def jump_Condtions(piece_dict, chess, current_row, current_col, next_row, next_c
             if chess[(current_row-i), (current_col-i)] != '-' and i!=0:
                 print(errors[5])
                 return False
- 

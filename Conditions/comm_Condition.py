@@ -1,4 +1,3 @@
-
 errors = {
     1 : "'0' row & '0' col not count!",
     2 : "Enter some value don't skip blank",
@@ -15,9 +14,9 @@ def movements(chess,current_row,current_col,next_row,next_col):
 def condition(current_row, current_col, next_row, next_col):
     if current_row == 0 or next_col == 0:
         raise ValueError(errors[1])
-    # if (current_col or current_row or next_col or next_row <= 8):
-    #     raise ValueError(errors[3])
-    if current_col == current_row == next_col == next_row:
+    elif any(i>8 for i in (current_row, current_col, next_row, next_col)):
+        raise ValueError(errors[3])
+    elif current_col == current_row == next_col == next_row:
         raise ValueError(errors[4])
     else:
         return True
