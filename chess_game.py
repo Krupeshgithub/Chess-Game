@@ -62,7 +62,6 @@ class Start_Game(Game):
         
     def start_game (self):
         print(self.chess)
-        global turn_
         turn_ = 1
         while True: 
             if ("♔" in piece_Condtions.DIE_PIECE_WHITE and turn_ == 0): 
@@ -84,39 +83,46 @@ class Start_Game(Game):
             comm_Condition.condition(self.current_row,self.current_col,self.next_row,self.next_col)
             
             get_piece = self.chess[self.current_row,self.current_col]
-            
+
             if (turn_ and get_piece in (piece_dict['WHITE'].values())) or (turn_ == 0 and get_piece in (piece_dict['BLACK'].values())):   
+
                 turn_ = False if turn_ else True
 
                 if (get_piece == piece_dict['WHITE']['Pawn']) or (get_piece == piece_dict['BLACK'] ['Pawn']):
-                    piece_Condtions.pawn_Conditions(get_piece, turn_, piece_dict, self.chess, \
-                                                    self.current_row,self.current_col, \
-                                                    self.next_row, self.next_col)
+                    value = piece_Condtions.pawn_Conditions(get_piece, turn_, piece_dict, self.chess, \
+                                                            self.current_row,self.current_col, \
+                                                            self.next_row, self.next_col)
+                    if value is not None : turn_ = value
 
                 elif (get_piece == piece_dict['WHITE']['Rook']) or (get_piece == piece_dict['BLACK'] ['Rook']):
-                    piece_Condtions.rook_Conditions(turn_, piece_dict, self.chess, \
-                                                    self.current_row,self.current_col, \
-                                                    self.next_row, self.next_col)
-                        
+                    value = piece_Condtions.rook_Conditions(turn_, piece_dict, self.chess, \
+                                                            self.current_row,self.current_col, \
+                                                            self.next_row, self.next_col)
+                    if value is not None : turn_ = value
+
                 elif (get_piece == piece_dict['WHITE']['Knight']) or (get_piece == piece_dict['BLACK'] ['Knight']):
-                    piece_Condtions.knight_Conditons(turn_, piece_dict, self.chess, \
-                                                        self.current_row, self.current_col, \
-                                                        self.next_row, self.next_col)
+                    value = piece_Condtions.knight_Conditons(turn_, piece_dict, self.chess, \
+                                                            self.current_row, self.current_col, \
+                                                            self.next_row, self.next_col)
+                    if value is not None : turn_ = value
                 
                 elif (get_piece == piece_dict['WHITE']['Bishop']) or (get_piece == piece_dict['BLACK'] ['Bishop']):
-                    piece_Condtions.bishop_Conditions(turn_, piece_dict, self.chess, \
-                                                        self.current_row, self.current_col, \
-                                                        self.next_row, self.next_col)
+                    value = piece_Condtions.bishop_Conditions(turn_, piece_dict, self.chess, \
+                                                            self.current_row, self.current_col, \
+                                                            self.next_row, self.next_col)
+                    if value is not None : turn_ = value
                         
                 elif (get_piece == piece_dict['WHITE']['King']) or (get_piece == piece_dict['BLACK'] ['King']):
-                    piece_Condtions.king_Condtions(turn_, piece_dict, self.chess, \
-                                                    self.current_row, self.current_col, \
-                                                    self.next_row, self.next_col)
+                    value = piece_Condtions.king_Condtions(turn_, piece_dict, self.chess, \
+                                                            self.current_row, self.current_col, \
+                                                            self.next_row, self.next_col)
+                    if value is not None : turn_ = value
                 
                 elif (get_piece == piece_dict['WHITE']['Queen']) or (get_piece == piece_dict['BLACK'] ['Queen']):
-                    piece_Condtions.queen_Conditions(turn_, piece_dict, self.chess, \
-                                                        self.current_row, self.current_col, \
-                                                        self.next_row, self.next_col)
+                    value = piece_Condtions.queen_Conditions(turn_, piece_dict, self.chess, \
+                                                            self.current_row, self.current_col, \
+                                                            self.next_row, self.next_col)
+                    if value is not None : turn_ = value
 
                 else:
                     raise ValueError("Enter valid number's")
