@@ -22,7 +22,7 @@ $ python chess_game.py
     $ next_col :
 
 ~ Please make sure you need to enter Four values.\
-~ ex: \
+~ ex: 
 
     [['S' '1' '2' '3' '4' '5' '6' '7' '8']
     ['a' '♖' '-' '♙' '-' '-' '-' '♟' '♜']
