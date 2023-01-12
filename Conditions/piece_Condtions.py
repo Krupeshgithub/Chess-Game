@@ -41,7 +41,7 @@ def same_Operations(turn_, piece_dict, chess, current_row, current_col, next_row
             DIE_PIECE_BLACK.append(chess[next_row,next_col])
             comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
-        elif (chess[next_row,next_col] in piece_dict['WHITE'].values()) and (turn_ == True):
+        elif (chess[next_row,next_col] in piece_dict['WHITE'].values()) and (turn_ == False):
             DIE_PIECE_WHITE.append(chess[next_row,next_col])
             comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
         
