@@ -46,8 +46,7 @@ In game we are use one librarie.
     $ next_row :
     $ next_col :
     ```
-~ Please make sure you need to enter Four values.\
-~ ex.
+7. Enter value like this.
      ```bash
     [['S' '1' '2' '3' '4' '5' '6' '7' '8']
     ['a' '♖' '-' '♙' '-' '-' '-' '♟' '♜']
@@ -64,6 +63,7 @@ In game we are use one librarie.
     $ next_row : 1
     $ next_col : 3
     ```
+    
 # Note: 
 
  1. if current_row or next_col enter 0 so, you out of the game.
