@@ -47,7 +47,7 @@ In game we are use one librarie.
     $ next_col :
     ```
 ~ Please make sure you need to enter Four values.\
-~ ex: 
+~ ex: \
     ```bash
     [['S' '1' '2' '3' '4' '5' '6' '7' '8']
     ['a' '♖' '-' '♙' '-' '-' '-' '♟' '♜']
