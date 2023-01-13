@@ -3,8 +3,6 @@ import numpy as np
 from Conditions import comm_Condition
 from Conditions import piece_Condtions
 
-
-
 piece_dict = {"WHITE" : {"Pawn" : "♙", "Rook" : "♖", "Knight" : "♘", "Bishop" : "♗", "King" : "♔", "Queen" : "♕" },\
  "BLACK" : {"Pawn" : "♟", "Rook" : "♜", "Knight" : "♞", "Bishop" : "♝", "King" : "♚", "Queen" : "♛" }}
 
@@ -28,7 +26,6 @@ class Game(Structure):
     def __init__ (self):
         Structure.__init__(self)
 
-
     def game(self):
         count = 1
         temp = 1
@@ -48,7 +45,6 @@ class Game(Structure):
             else:
                 self.chess[count,1] = list(piece_dict["WHITE"].values())[val]
                 self.chess[count,8] = list(piece_dict["BLACK"].values())[val]
-
                 val-=1
                 
             count+=1
