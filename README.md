@@ -14,22 +14,23 @@ In game we are use one librarie.
 # Follow Below steps to run game.
  1. Create folder and clone repo.
  2. Create environment.
-    '''bash
+    ```bash
     python3 -m venv env
-    '''
+    ```
  3. Activate environment.
-    '''bash
+    ```bash
     source env/bin/activate
+    ```
  4. Install requirement.txt.
-    '''bash
+    ```bash
     pip install requirement.txt
-    '''
+    ```
  5. Run game.
-    '''bash
+    ```bash
     python chess_game.py
-    '''
+    ```
  6. In terminal.
- 
+    ```bash
     [['S' '1' '2' '3' '4' '5' '6' '7' '8']
     ['a' '♖' '-' '♙' '-' '-' '-' '♟' '♜']
     ['b' '♘' '♙' '-' '-' '-' '-' '♟' '♞']
@@ -44,10 +45,10 @@ In game we are use one librarie.
     $ current_col :
     $ next_row :
     $ next_col :
-
+    ```
 ~ Please make sure you need to enter Four values.\
 ~ ex: 
-
+    ```bash
     [['S' '1' '2' '3' '4' '5' '6' '7' '8']
     ['a' '♖' '-' '♙' '-' '-' '-' '♟' '♜']
     ['b' '♘' '♙' '-' '-' '-' '-' '♟' '♞']
@@ -62,7 +63,7 @@ In game we are use one librarie.
     $ current_col : 2
     $ next_row : 1
     $ next_col : 3
-
+    ```
 # Note: 
 
  1. if current_row or next_col enter 0 so, you out of the game.
