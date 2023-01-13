@@ -58,7 +58,7 @@ In game we are use one librarie.
     ['f' '♗' '♙' '-' '-' '-' '-' '♟' '♝']
     ['g' '♘' '♙' '-' '-' '-' '-' '♟' '♞']
     ['h' '♖' '♙' '-' '-' '-' '-' '♟' '♜']]
-    
+   
     $ current_row : 1
     $ current_col : 2
     $ next_row : 1
