@@ -32,7 +32,7 @@ In game we are use one librarie.
  6. In terminal.
     ```bash
     [['S' '1' '2' '3' '4' '5' '6' '7' '8']
-    ['a' '♖' '-' '♙' '-' '-' '-' '♟' '♜']
+    ['a' '♖' '♙' '-' '-' '-' '-' '♟' '♜']
     ['b' '♘' '♙' '-' '-' '-' '-' '♟' '♞']
     ['c' '♗' '♙' '-' '-' '-' '-' '♟' '♝']
     ['d' '♔' '♙' '-' '-' '-' '-' '♟' '♚']
@@ -47,8 +47,8 @@ In game we are use one librarie.
     $ next_col :
     ```
 ~ Please make sure you need to enter Four values.\
-~ ex: \
-    ```bash
+~ ex: 
+     ```bash
     [['S' '1' '2' '3' '4' '5' '6' '7' '8']
     ['a' '♖' '-' '♙' '-' '-' '-' '♟' '♜']
     ['b' '♘' '♙' '-' '-' '-' '-' '♟' '♞']
@@ -58,7 +58,7 @@ In game we are use one librarie.
     ['f' '♗' '♙' '-' '-' '-' '-' '♟' '♝']
     ['g' '♘' '♙' '-' '-' '-' '-' '♟' '♞']
     ['h' '♖' '♙' '-' '-' '-' '-' '♟' '♜']]
-   
+
     $ current_row : 1
     $ current_col : 2
     $ next_row : 1
