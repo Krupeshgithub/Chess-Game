@@ -43,4 +43,4 @@ $ python chess_game.py
 
  1. if current_row or next_col enter 0 so, you out of the game.
  2. if user enter more than 8 number so, you out of the game.
- 3. if all row and col match same value so, you out of the game.
+ 3. if current_row, current_col, next_row and next_col match same value so, you out of the game.

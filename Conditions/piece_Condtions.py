@@ -18,11 +18,11 @@ def knight_queen(current_row, current_col):
 def same_Operations(turn_, piece_dict, chess, current_row, current_col, next_row, next_col):
     if (chess[current_row, current_col] not in ["♞", "♘"]) and (jump_Condtions(turn_, piece_dict, chess, current_row, current_col, next_row, next_col)) is None:
 
-        if (chess[next_row,next_col] in piece_dict['BLACK'].values()) and (turn_ == True):
+        if (chess[next_row,next_col] in piece_dict['BLACK'].values()) and (turn_ == False):
             DIE_PIECE_BLACK.append(chess[next_row,next_col])
             comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
-        elif (chess[next_row,next_col] in piece_dict['WHITE'].values()) and (turn_ == False):
+        elif (chess[next_row,next_col] in piece_dict['WHITE'].values()) and (turn_ == True):
             DIE_PIECE_WHITE.append(chess[next_row,next_col])
             comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
         
@@ -37,11 +37,11 @@ def same_Operations(turn_, piece_dict, chess, current_row, current_col, next_row
 
     elif (chess[current_row, current_col] in ["♞", "♘"]):
 
-        if (chess[next_row,next_col] in piece_dict['BLACK'].values()) and (turn_ == True):
+        if (chess[next_row,next_col] in piece_dict['BLACK'].values()) and (turn_ == False):
             DIE_PIECE_BLACK.append(chess[next_row,next_col])
             comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
             
-        elif (chess[next_row,next_col] in piece_dict['WHITE'].values()) and (turn_ == False):
+        elif (chess[next_row,next_col] in piece_dict['WHITE'].values()) and (turn_ == True):
             DIE_PIECE_WHITE.append(chess[next_row,next_col])
             comm_Condition.movements(chess,current_row,current_col,next_row,next_col)
         
